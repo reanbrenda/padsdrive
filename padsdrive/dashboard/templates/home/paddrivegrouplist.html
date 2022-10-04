@@ -1,0 +1,64 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Profile {% endblock title %}
+{% block body %}
+<link rel = stylesheet href = "//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" defer>
+  <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" defer></script>
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+<div  class="container-fluid">
+    
+
+    
+        <h2 style="color:red;margin-top:4%">Employee List
+            <a href="{% url 'createPadDriveGroup' %}"><button class="btn btn-primary" align="right" style="float:right">Create</button></a>
+        </h2>
+        <table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>DOB</th>
+    <th>Date of joining</th>
+      <th>Department</th>
+      <th>Designation</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Zipcode</th>
+    <th>No of leave</th>
+    <th>Leave/Working</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+   <tbody>
+
+    {% for i in paddrivegoup  %}
+  <tr>
+
+    <td>{{i.name}}</td>
+    <td>{{i.county }}</td>
+    <td>{{i.email}}</td>
+      <td>{{i.donation_amount}}</td>
+      <td>{{i.contact_person}}</td>
+      <td>{{i.phone_number}}</td>
+      <td>{{i. no_pads}}</td>
+      <td>{{i.country}}</td>
+      <td>{{i.zipcode}}</td>
+
+    <td><a href="{% url 'edit_employee' i.id %}" ><button class="btn btn-success">Edit</button></a>
+        <a href="{% url 'delete_employee' i.id %}" onclick="return confirm('Are you sure?')"><button class="btn btn-danger">delete</button></a>
+    </td>
+  </tr>
+
+    {% endfor %}
+    </tbody>
+
+</table>
+
+</div>
+
+{% endblock  %}

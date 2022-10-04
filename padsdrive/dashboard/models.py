@@ -23,6 +23,5 @@ class PadDriveGroup(models.Model):
     phone_number=models.CharField(max_length=100)
     no_pads=models.IntegerField()
     
-    
     def __str__(self) -> str:
         return self.name

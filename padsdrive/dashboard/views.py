@@ -6,6 +6,7 @@ from django.template import loader
 from django.urls import reverse
 
 
+
 def dashboard(request):
     context = {'segment': 'dashboard'}
 
@@ -36,3 +37,24 @@ def pages(request):
     except:
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
+    
+def createPadDriveGroup(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        county = request.POST['county']
+        email=request.POST['email']
+        donation_amount=request.POST['donation_amount']
+        contact_person=request.POST['contact_person']
+        phone_number=request.POST['phone_number']
+        no_pads=request.POST['no_pads']
+        
+        paddrivegroup_obj =PadDriveGroup.objects.create(name=name,county=county,email=email,donation_amount=donation_amount,contact_person=contact_person,phone_number=phone_number,no_pads=no_pads)
+        messages.success(request, "pad drive group created successfully")
+
+    return render(request, 'createpaddrive.html')
+
+
+def Paddrivegroup_list(request):
+    paddrivegroup_data = PadDriveGroup.objects.filter()
+    d = {'paddrivegoup':paddrivegroup_data}
+    return render(request, 'tables.html',d)

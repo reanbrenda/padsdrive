@@ -1,0 +1,76 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Profile {% endblock title %}
+{% block body %}
+
+<div class="container">
+    <h2 style="margin-top:20px" align="center">Create Pad Drive Group </h2><hr>
+
+
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Name</label>
+      <input type="text" class="form-control"  name="name" id="inputEmail4" required placeholder="Enter Full Name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">County</label>
+      <input type="text" class="form-control" name="county" id="inputPassword4" required placeholder="county">
+    </div>
+  </div>
+  
+    <div class="row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="text" class="form-control" name="post" id="inputEmail4" required placeholder="Post">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Donation_amount</label>
+      <input type="date" class="form-control" name="donation_amount" id="inputPassword4" required>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Contact_person</label>
+      <input type="date" class="form-control" name="contact_person" id="inputEmail4" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">phone_number</label>
+      <input type="text" class="form-control" name="phone_number" id="inputPassword4" required placeholder="Enter phone_number">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Number  of Pads</label>
+      <input type="text" class="form-control" name="no_pads" id="inputPassword4" required placeholder="Enter Number of pads">
+    </div>
+    </div>
+
+
+    <div class="row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">State</label>
+          <input type="text" class="form-control" name="state" id="inputEmail4" required placeholder="Enter State">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Country</label>
+          <input type="text" class="form-control" name="country" id="inputPassword4" required placeholder="Enter Country">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Zipcode</label>
+          <input type="text" class="form-control" name="zipcode" id="inputEmail4" required placeholder="Enter zipcode">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="exampleFormControlTextarea1">Address</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="address" rows="3"></textarea>
+        </div>
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+{% endblock  %}
